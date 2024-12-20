@@ -1,0 +1,22 @@
+package com.cdac.shopipng;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class Category extends HttpServlet {
+
+	@Override
+	public void doGet(HttpServletRequest request, HttpServletResponse response) {
+		
+		try {
+			PrintWriter out = response.getWriter();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

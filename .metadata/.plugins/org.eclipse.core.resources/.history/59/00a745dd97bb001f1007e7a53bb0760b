@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>register</title>
+</head>
+<body>
+	<form action="Authenticate" method="post">
+		username: <input type="text" name="username"/>
+		password: <input type="text" name="password"/>
+		<input type="submit"/>
+	</form>
+</body>
+</html>

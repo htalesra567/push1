@@ -1,0 +1,34 @@
+package com.cdac.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Connections {
+
+	public static void main(String[] args) throws SQLException {
+		// TODO Auto-generated method stub
+		
+			Connection connection = null;
+			int result = 0;
+			int rsInsert = null;
+			Statement statement = null;
+			
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbccdac","root","1234");
+			
+			statement = connection.createStatement();
+			result = statement.executeUpdate("create table student (rno int,name varchar(45))");
+			
+			rsInsert = statement.executeUpdate("insert into users values('h567','hitesh','hh','h@.com')");
+			
+//			result.next();
+			
+			System.out.println(result);
+			System.out.println(rsInsert);
+			
+			connection.close();
+	}
+
+}

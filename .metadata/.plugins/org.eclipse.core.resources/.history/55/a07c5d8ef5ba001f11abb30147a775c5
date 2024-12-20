@@ -1,0 +1,32 @@
+package com.cdac.register;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+
+@WebServlet("/register")
+public class Register extends HttpServlet {
+
+	public void doPost(HttpServletRequest request,HttpServletResponse response) {
+		
+		String name = request.getParameter(name);
+		String email = request.getParameter(email);
+		
+		try {
+			PrintWriter out = response.getWriter();
+			out.println("<html>");
+			out.println("<body>");
+			out.println("<h3> name:" +name +"</h3>");
+			out.println("<h3> email:" +email +"</h3>");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

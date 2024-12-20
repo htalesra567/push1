@@ -1,0 +1,81 @@
+package com.cdac.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+
+
+public class Helper {
+	private Connection connection = null;
+	int result = 0;
+	int rsInsert = 0;
+	Scanner sc = new Scanner(System.in);
+	
+	public Helper() {
+		try {
+		ResultSet rs = null;
+		Statement statement = null;
+		
+		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbccdac","root","1234");
+		statement = connection.createStatement();
+		
+	}
+		catch(SQLException e) {
+			e.getStackTrace();
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	public void addData() {
+		
+		System.out.println("enter username");
+		String username = sc.nextLine();
+		System.out.println("enter password");
+		String password = sc.nextLine();
+		System.out.println("enter name");
+		String name = sc.nextLine();
+		System.out.println("enter email");
+		String email = sc.nextLine();
+		System.out.println("enter city");
+		String city = sc.nextLine();
+		try {
+			PreparedStatement sp = connection.prepareStatement("insert into users values(?,?,?,?,?)");
+			
+			sp.setString(1, username);
+			sp.setString(2,password);
+			sp.setString(3,name);
+			sp.setString(4,email);
+			sp.setString(5,city);
+			sp.execute();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getStackTrace();
+		}
+		
+	}
+	
+	public List<> display(){
+			
+			System.out.println("enter city name");
+			String city = sc.nextLine();
+		try {
+			PreparedStatement sp = connection.prepareStatement("select * from users where city = ?");
+			sp.setString(0, city);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
+		
+}
+
+

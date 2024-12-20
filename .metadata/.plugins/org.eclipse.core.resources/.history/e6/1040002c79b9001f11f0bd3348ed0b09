@@ -1,0 +1,70 @@
+package com.cdac.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.PseudoColumnUsage;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class Connections {
+
+	public static void main(String[] args) throws SQLException {
+		// TODO Auto-generated method stub
+		
+			Connection connection = null;
+			int result = 0;
+			int rsInsert = 0;
+			ResultSet rs = null;
+			Statement statement = null;
+			PreparedStatement sp = null;
+			
+			Scanner sc = new Scanner(System.in);
+			
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbccdac","root","1234");
+			
+			statement = connection.createStatement();
+			
+//			result = statement.executeUpdate("create table users (username varchar(45),password varchar(45),name varchar(45),email varchar(45),city varchar(45))");
+			
+			System.out.println("enter username");
+			String username = sc.nextLine();
+			System.out.println("enter password");
+			String password = sc.nextLine();
+			System.out.println("enter name");
+			String name = sc.nextLine();
+			System.out.println("enter email");
+			String email = sc.nextLine();
+			System.out.println("enter city");
+			String city = sc.nextLine();
+			sp = connection.prepareStatement("insert into users values(?,?,?,?,?)");
+			
+			sp.setString(1, username);
+			sp.setString(2,password);
+			sp.setString(3,name);
+			sp.setString(4,email);
+			sp.setString(5,city);
+			
+			
+			
+ 
+ 			
+
+			
+			
+//			rs = statement.executeQuery("select * from users");
+//			
+//			System.out.println(result);
+//			System.out.println(rsInsert);
+//			while(rs.next()) {
+//			System.out.println(rs.getString(1));
+//			System.out.println(rs.getString(2));
+//			System.out.println(rs.getString(3));
+//			System.out.println(rs.getString(4));
+//			}			
+//			connection.close();
+	}
+
+}
